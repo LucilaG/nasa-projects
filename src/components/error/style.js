@@ -24,7 +24,6 @@ font-size: 25px;
 
 export const Gif = styled.div`
 background-color: ${fifthColor};
-color:#A9242C;
 @media (min-width: 768px) {
     background-position: 50%;
     background-image: url(${gif});

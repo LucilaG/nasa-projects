@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import ProjectCard from '../projectCard/ProjectCard'
-import { List, ItemList, DeleteButton, Pagination, PaginationButton } from '../../views/home/style'
+import { List, ItemList, DeleteButton, Pagination, PaginationButton } from './style'
 import { MdDelete } from 'react-icons/md';
 
 const elementsPerPage = 6;
@@ -29,13 +29,12 @@ const ProjectsComponent = (props) => {
                 </List>
             }
               <Pagination>
-                    <PaginationButton onClick={() => setPage(0)}>1</PaginationButton>
-                    <PaginationButton onClick={() => setPage(1)}>2</PaginationButton>
-                    <PaginationButton onClick={() => setPage(2)}>3</PaginationButton>
+                    <PaginationButton onClick={() => setPage(0)} className={page === 0 ? 'selected' : ''}>1</PaginationButton>
+                    <PaginationButton onClick={() => setPage(1)} className={page === 1 ? 'selected' : '' }>2</PaginationButton>
+                    <PaginationButton onClick={() => setPage(2)} className={page === 2 ?  'selected' : ''}>3</PaginationButton>
                 </Pagination>
         </Fragment>
     )
-
 }
 
 export default ProjectsComponent;
