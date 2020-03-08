@@ -21,9 +21,9 @@ const ProjectsComponent = (props) => {
             {data &&
                 <List>
                     {sliceData().map((ele, i) => (
-                        <ItemList primaryColor={'#F5ECE8'} id={i}>
+                        <ItemList primaryColor={'#F5ECE8'} id={i} key={i}>
                             <DeleteButton onClick={() => deleteItem(i)}><MdDelete fontSize={20} /></DeleteButton>
-                            <ProjectCard id={ele.id} urlParams={urlParams} key={ele.id} />
+                            <ProjectCard id={ele.id} urlParams={urlParams}/>
                         </ItemList>
                     ))}
                 </List>

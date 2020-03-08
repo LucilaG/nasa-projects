@@ -5,7 +5,7 @@ import '../../assets/css/fonts.css';
 const secondaryColor = '#2B282B';
 const thirdColor = '#DFDFE1';
 const fourthColor = '#59A399';
-
+const fifthColor = '#151524';
 
 export const Header = styled.div`
 height: 20em;
@@ -36,20 +36,22 @@ list-style-type: none;
 
 export const ItemList = styled.li`
 position: relative;
-margin: 1rem 10rem;
+margin: 2rem 1rem;
 border: 1px solid  ${props => props.primaryColor || " "};
 border-radius: 10px;
 background-color: white;
-margin-bottom: 34px;
-&:nth-child(odd){
-    margin-left: 4rem;
-}
-&:nth-child(even){
-    margin-right: 4rem;
-}
 &:hover { 
     box-shadow: 0 0 30px ${thirdColor}; 
 }; 
+@media (min-width: 768px) {
+    margin: 1rem 10rem;
+    &:nth-child(odd){
+        margin-left: 4rem;
+    }
+    &:nth-child(even){
+        margin-right: 4rem;
+    }
+}
 `;
 
 export const Body = styled.div`
@@ -59,13 +61,15 @@ color: ${thirdColor}
 
 
 export const Content = styled.div`
-heigth:100vp;
 position: relative;
 font-family: 'Courier Prime', monospace;
-background-color: #151524;
+background-color: ${fifthColor};
 background-image: url(${img});
-background-position: 50% 20%;
+background-position: 50% 1%;
 background-repeat: no-repeat;
+@media (min-width: 768px) {
+    background-position: 50% 20%;
+}
 `;
 
 
@@ -95,5 +99,17 @@ export const PaginationButton = styled.button`
     font-size: 16px;
     padding: 16px;
     margin: 1em;
+}
+`;
+
+export const Footer = styled.div`
+width: 100%;
+text-align: center;
+padding-bottom: 1em;
+background-color:  ${fifthColor};
+color: #A9242C;
+padding: 5px;
+@media (max-width: 768px) {
+margin-bottom: 7em;
 }
 `;

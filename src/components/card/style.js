@@ -50,7 +50,7 @@ overflow: hidden;
     z-index: 3000;
     > article {
         position: absolute;  
-        margin: 10rem;  
+        margin: 2rem;  
         border-radius: 0px;  
         background: white;  
         height: 350px;
@@ -61,6 +61,11 @@ overflow: hidden;
     };
     ${CloseButton} {
         display: block
+    }
+    @media (min-width: 768px) {
+        > article {
+            margin: 10rem;  
+        }
     }
 }
 `;

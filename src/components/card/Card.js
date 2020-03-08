@@ -19,6 +19,7 @@ const Card = (props) => {
     }
 
     const formatTitle = (raw) => raw.replace(/([A-Z]+)/g, " $1").replace(/^,/, "");
+    const formatContent = (raw) => raw.replace(/\<.*?\>(.*?)\<.*?\>/, '$1'); 
 
     const [isFavorite, setIsFavorite] = useState(false)
 
@@ -34,7 +35,7 @@ const Card = (props) => {
                             <Article key={ele.id}>
                                 <CardTitle>{ele.title}</CardTitle>
                                 <CloseButton onClick={e => handleClick(e)}><IoIosCloseCircleOutline fontSize={20} /></CloseButton>
-                                {dataRow.map((drele, i) => ele[drele] && <Row key={i}><Span primary>{formatTitle(drele)}</Span> <Span>{ele[drele]}</Span></Row>)}
+                                {dataRow.map((drele, i) => ele[drele] && <Row key={i}><Span primary>{formatTitle(drele)}</Span> <Span>{formatContent(ele[drele])}</Span></Row>)}
                             </Article>
                             <Transparent className='transparent'></Transparent>
                             <Button onClick={e => handleClick(e)}>

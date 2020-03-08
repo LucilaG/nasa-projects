@@ -21,7 +21,7 @@ const ProjectCard = (props) => {
             {data && 
                 Object.values(data).map((ele, i) => {
                     return (
-                        <Card data={data} dataRow={dataRow} />
+                        <Card data={data} dataRow={dataRow} key={i}/>
                     )
                 })
             }

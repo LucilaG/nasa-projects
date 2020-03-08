@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { useGet } from "restful-react"
 import ProjectsComponent from '../../components/projectsComponent/ProjectsComponent'
-import { Header, Title, Body, Content } from './style'
+import { Header, Title, Body, Content, Footer } from './style'
 import Loading from '../../components/loading/Loading'
 
 const URL = 'https://api.nasa.gov/techport/api/projects'
@@ -19,7 +19,7 @@ const Home = (props) => {
         <Fragment>
             {loading && <Loading className='fixed' />}
             {data &&
-                <Content loading={loading}>
+                <Content>
                     <Header>
                         <Title>Nasa<br />Projects</Title>
                         <Title subtitle>Hey!<br /> look at everything <br /> NASA is working on</Title>
@@ -27,6 +27,7 @@ const Home = (props) => {
                     <Body>
                         <ProjectsComponent data={data} urlParams={URL_PARAMS}></ProjectsComponent>
                     </Body>
+                    <Footer><p>Develop by Lucila Gaudio</p></Footer>
                 </Content >
             }
         </Fragment>
