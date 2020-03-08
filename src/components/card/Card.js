@@ -19,6 +19,8 @@ const Card = (props) => {
     }
 
     const formatTitle = (raw) => raw.replace(/([A-Z]+)/g, " $1").replace(/^,/, "");
+    
+    // eslint-disable-next-line 
     const formatContent = (raw) => raw.replace(/\<.*?\>(.*?)\<.*?\>/, '$1'); 
 
     const [isFavorite, setIsFavorite] = useState(false)

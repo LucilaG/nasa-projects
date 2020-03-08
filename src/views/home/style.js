@@ -7,6 +7,25 @@ const thirdColor = '#DFDFE1';
 const fourthColor = '#59A399';
 const fifthColor = '#151524';
 
+
+export const Body = styled.div`
+position: relative;
+color: ${thirdColor}
+`;
+
+
+export const Content = styled.div`
+position: relative;
+font-family: 'Courier Prime', monospace;
+background-color: ${fifthColor};
+background-image: url(${img});
+background-position: 50% 1%;
+background-repeat: no-repeat;
+@media (min-width: 768px) {
+    background-position: 50% 20%;
+}
+`;
+
 export const Header = styled.div`
 height: 20em;
 display: flex;
@@ -54,23 +73,7 @@ background-color: white;
 }
 `;
 
-export const Body = styled.div`
-position: relative;
-color: ${thirdColor}
-`;
 
-
-export const Content = styled.div`
-position: relative;
-font-family: 'Courier Prime', monospace;
-background-color: ${fifthColor};
-background-image: url(${img});
-background-position: 50% 1%;
-background-repeat: no-repeat;
-@media (min-width: 768px) {
-    background-position: 50% 20%;
-}
-`;
 
 
 export const DeleteButton = styled.button`
@@ -113,3 +116,4 @@ padding: 5px;
 margin-bottom: 7em;
 }
 `;
+

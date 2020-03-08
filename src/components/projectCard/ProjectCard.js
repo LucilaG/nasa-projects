@@ -9,7 +9,7 @@ const ProjectCard = (props) => {
 
     const { id, urlParams } = props;
 
-    const { data, error, loading } = useGet({
+    const { data, loading } = useGet({
         path: URL.concat('/', id, urlParams)
     });
 
