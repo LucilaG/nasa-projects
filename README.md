@@ -1,3 +1,8 @@
+This project is part of a Code Challange using Nasa open api.
+
+The images use is from  [rawpixel](https://www.rawpixel.com/image/250141/free-illustration-image-astronaut-solar-system-planet)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
