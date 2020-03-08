@@ -2,21 +2,24 @@ import styled from 'styled-components';
 import img from '../../assets/img/nasa.jpg';
 import '../../assets/css/fonts.css';
 
-const fontPrimaryColor= '#353034'; 
+const secondaryColor = '#2B282B';
+const thirdColor = '#DFDFE1';
+const fourthColor = '#59A399';
 
 
 export const Header = styled.div`
-height: 25em;
+height: 20em;
 display: flex;
 flex-direction: column;
-justify-content: center;
-align-items: center;
+padding: 4rem;
+}
 `;
 
 export const Title = styled.h3`
-font-size: ${props => props.subtitle ? '2rem' : '4rem' };
+font-size: ${props => props.subtitle ? '2rem' : '4rem'};
 font-weight: 100;
 margin-top: 0;
+color:${thirdColor}
 `;
 
 export const List = styled.ul`
@@ -27,32 +30,70 @@ padding: 0px;
 list-style-type: none;
 @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    margin: 2em;
     z-index: 3200;
 }
 `;
 
 export const ItemList = styled.li`
-border: 1px solid  ${props => props.primaryColor || "geelen"};
-margin: 1em 5em;
+position: relative;
+margin: 1rem 10rem;
+border: 1px solid  ${props => props.primaryColor || " "};
+border-radius: 10px;
 background-color: white;
-box-shadow: 0 0 11px  ${props => props.primaryColor || "geelen"};
+margin-bottom: 34px;
+&:nth-child(odd){
+    margin-left: 4rem;
+}
+&:nth-child(even){
+    margin-right: 4rem;
+}
 &:hover { 
-    background-color:  ${props => props.primaryColor || "geelen"};
+    box-shadow: 0 0 30px ${thirdColor}; 
 }; 
 `;
 
 export const Body = styled.div`
 position: relative;
-color: ${fontPrimaryColor}
+color: ${thirdColor}
 `;
 
 
 export const Content = styled.div`
+heigth:100vp;
 position: relative;
 font-family: 'Courier Prime', monospace;
-background-color: #F7F4ED;
+background-color: #151524;
 background-image: url(${img});
 background-position: 50% 20%;
 background-repeat: no-repeat;
+`;
+
+
+export const DeleteButton = styled.button`
+    color: ${secondaryColor};
+    top: 1em;
+    position: absolute;
+    right: 1em;
+    background-color: transparent;
+    border: none;
+    font-weight: 750;
+    z-index:1000
+`;
+
+export const Pagination = styled.div`
+width: 100%;
+text-align: center;
+padding-bottom: 1em;
+`;
+
+export const PaginationButton = styled.button`
+    color: white;
+    background-color: ${fourthColor};
+    border: none;
+    border-radius: 30%;
+    font-weight: 750;
+    font-size: 16px;
+    padding: 16px;
+    margin: 1em;
+}
 `;

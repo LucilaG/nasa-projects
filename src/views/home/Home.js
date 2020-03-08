@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import { useGet } from "restful-react"
-import ProjectCard from '../../components/projectCard/ProjectCard'
-import { List, ItemList, Header, Title, Body, Content } from './style'
+import ProjectsComponent from '../../components/projectsComponent/ProjectsComponent'
+import { Header, Title, Body, Content } from './style'
+import Loading from '../../components/loading/Loading'
 
 const URL = 'https://api.nasa.gov/techport/api/projects'
 const URL_PARAMS = '?api_key=aFTcAdnON8NotVOegGndAMcsUKn1t9a1bieDPAmO'
@@ -9,26 +10,26 @@ const URL_PARAMS = '?api_key=aFTcAdnON8NotVOegGndAMcsUKn1t9a1bieDPAmO'
 const Home = (props) => {
 
     const { data, error, loading } = useGet({
-        path: URL.concat(URL_PARAMS)
+        path: URL.concat(URL_PARAMS),
+        resolve: data => data && data.projects && data.projects.projects,
     });
+
+
     return (
-        <Content>
-            <Header>
-                <Title>Nasa Projects</Title>
-                <Title subtitle>Hey! look at everything NASA is working on</Title>
-            </Header>
-            <Body>
-                {(data && data.projects) &&
-                    <List>
-                        {data.projects.projects.slice(0, 10).map(ele => (
-                            <ItemList primaryColor={'#F5ECE8'}>
-                                <ProjectCard id={ele.id} urlParams={URL_PARAMS} key={ele.id}/>
-                            </ItemList>
-                        ))}
-                    </List>
-                }
-            </Body>
-        </Content >
+        <Fragment>
+            {loading && <Loading className='fixed' />}
+            {data &&
+                <Content loading={loading}>
+                    <Header>
+                        <Title>Nasa<br />Projects</Title>
+                        <Title subtitle>Hey!<br /> look at everything <br /> NASA is working on</Title>
+                    </Header>
+                    <Body>
+                        <ProjectsComponent data={data} urlParams={URL_PARAMS}></ProjectsComponent>
+                    </Body>
+                </Content >
+            }
+        </Fragment>
     )
 
 }
