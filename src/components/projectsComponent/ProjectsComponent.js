@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import ProjectCard from '../projectCard/ProjectCard'
 import { List, ItemList, DeleteButton, Pagination, PaginationButton } from './style'
 import { MdDelete } from 'react-icons/md';
@@ -10,11 +10,11 @@ const ProjectsComponent = (props) => {
 
     const [page, setPage] = useState(0);
 
+    const pages = [0, 1, 2];
+
     const deleteItem = (i) => { document.getElementById(i).remove(); }
 
     const sliceData = () => (data && data.slice(page * elementsPerPage, page * elementsPerPage + elementsPerPage));
-
-    useEffect(() => {}, [page]);
 
     return (
         <Fragment>
@@ -23,16 +23,14 @@ const ProjectsComponent = (props) => {
                     {sliceData().map((ele, i) => (
                         <ItemList primaryColor={'#F5ECE8'} id={i} key={i}>
                             <DeleteButton onClick={() => deleteItem(i)}><MdDelete fontSize={20} /></DeleteButton>
-                            <ProjectCard id={ele.id} urlParams={urlParams}/>
+                            <ProjectCard id={ele.id} urlParams={urlParams} />
                         </ItemList>
                     ))}
                 </List>
             }
-              <Pagination>
-                    <PaginationButton onClick={() => setPage(0)} className={page === 0 ? 'selected' : ''}>1</PaginationButton>
-                    <PaginationButton onClick={() => setPage(1)} className={page === 1 ? 'selected' : '' }>2</PaginationButton>
-                    <PaginationButton onClick={() => setPage(2)} className={page === 2 ?  'selected' : ''}>3</PaginationButton>
-                </Pagination>
+            <Pagination>
+                {pages.map(ele => <PaginationButton onClick={() => setPage(ele)} className={page === ele ? 'selected' : ''}>{ele+1}</PaginationButton>)}
+            </Pagination>
         </Fragment>
     )
 }

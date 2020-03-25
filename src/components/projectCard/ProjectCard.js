@@ -18,13 +18,7 @@ const ProjectCard = (props) => {
     return (
         <Fragment>
             {loading && <Loading />}
-            {data && 
-                Object.values(data).map((ele, i) => {
-                    return (
-                        <Card data={data} dataRow={dataRow} key={i}/>
-                    )
-                })
-            }
+            {data && <Card data={data} dataRow={dataRow} />}
         </Fragment>
     )
 

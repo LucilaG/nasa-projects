@@ -12,6 +12,7 @@ export const Button = styled.button`
 position:absolute;
 bottom: 0px;
 width: -webkit-fill-available;
+width: -moz-available;
 background: white;
 border: none;
 border-top: 1px solid ${secondaryColor};

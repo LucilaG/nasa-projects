@@ -2,9 +2,7 @@ import styled from 'styled-components';
 import img from '../../assets/img/nasa.jpg';
 import '../../assets/css/fonts.css';
 
-const secondaryColor = '#2B282B';
 const thirdColor = '#DFDFE1';
-const fourthColor = '#59A399';
 const fifthColor = '#151524';
 
 
