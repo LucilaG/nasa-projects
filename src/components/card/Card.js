@@ -8,7 +8,7 @@ import { MdFavorite } from 'react-icons/md';
 
 const Card = (props) => {
 
-    const { data, dataRow} = props;
+    const { data, dataRow } = props;
 
     const [showMore, setShowMore] = useState(false)
 
@@ -19,12 +19,11 @@ const Card = (props) => {
     }
 
     const formatTitle = (raw) => raw.replace(/([A-Z]+)/g, " $1").replace(/^,/, "");
-    
+
     // eslint-disable-next-line 
-    const formatContent = (raw) => raw.replace(/\<.*?\>(.*?)\<.*?\>/, '$1'); 
+    const formatContent = (raw) => raw.replace(/\<.*?\>(.*?)\<.*?\>/, '$1');
 
     const [isFavorite, setIsFavorite] = useState(false)
-
     return (
         <Fragment>
             {data &&

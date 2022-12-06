@@ -23,13 +23,13 @@ const ProjectsComponent = (props) => {
                     {sliceData().map((ele, i) => (
                         <ItemList primaryColor={'#F5ECE8'} id={i} key={i}>
                             <DeleteButton onClick={() => deleteItem(i)}><MdDelete fontSize={20} /></DeleteButton>
-                            <ProjectCard id={ele.id} urlParams={urlParams} />
+                            <ProjectCard id={ele.projectId} urlParams={urlParams} />
                         </ItemList>
                     ))}
                 </List>
             }
             <Pagination>
-                {pages.map(ele => <PaginationButton onClick={() => setPage(ele)} className={page === ele ? 'selected' : ''}>{ele+1}</PaginationButton>)}
+                {pages.map((ele, i) => <PaginationButton key={ele + i} onClick={() => setPage(ele)} className={page === ele ? 'selected' : ''}>{ele + 1}</PaginationButton>)}
             </Pagination>
         </Fragment>
     )

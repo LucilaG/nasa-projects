@@ -5,16 +5,14 @@ import { Header, Title, Body, Content, Footer } from './style'
 import Loading from '../../components/loading/Loading'
 import Error from '../../components/error/Error';
 
-const URL = 'https://api.nasa.gov/techport/api/projects'
-const URL_PARAMS = '?api_key=aFTcAdnON8NotVOegGndAMcsUKn1t9a1bieDPAmO'
+const URL_PARAMS = `?api_key=${process.env.REACT_APP_API_KEY}`
 
 const Home = () => {
 
     const { data, error, loading } = useGet({
-        path: URL.concat(URL_PARAMS),
-        resolve: data => data && data.projects && data.projects.projects,
+        path: process.env.REACT_APP_BASE_URL.concat(URL_PARAMS),
+        resolve: data => data?.projects,
     });
-
 
     return (
         <Fragment>

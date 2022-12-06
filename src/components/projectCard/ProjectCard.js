@@ -3,14 +3,10 @@ import { useGet } from "restful-react"
 import Card from '../card/Card';
 import Loading from '../loading/Loading';
 
-const URL = 'https://api.nasa.gov/techport/api/projects/'
-
-const ProjectCard = (props) => {
-
-    const { id, urlParams } = props;
+const ProjectCard = ({ id, urlParams }) => {
 
     const { data, loading } = useGet({
-        path: URL.concat('/', id, urlParams)
+        path: process.env.REACT_APP_BASE_URL.concat('/', id, urlParams)
     });
 
     const dataRow = ['lastUpdated', 'status', 'startDate', 'description'];
